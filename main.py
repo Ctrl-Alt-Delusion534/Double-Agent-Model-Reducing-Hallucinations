@@ -10,8 +10,6 @@ MarketMaster- Dual-Agent Financial Research Assistant
 aimed at eliminating the Hallucinations
 """
 
-!pip install -q langchain langchain-google-genai google-search-results newsapi-python
-
 # Let us import the required libraries
 
 import os
@@ -44,13 +42,15 @@ def get_finance_news(query):
     except Exception as e:
         return f"Error: {str(e)}"
 
+
+#Could not use the NEWSAPIKEY as it is no longer supported by the latest versions of Langchain 
+
 tool_news = Tool(
     name="finance_news",
     func=get_finance_news,
     description="Find recent financial news articles about companies or topics."
 )
 
-!pip install -U langchain-community
 
 # Configuring the API keys
 
@@ -62,7 +62,6 @@ def setup_api_keys():
   required_keys={
       "GOOGLE_API_KEY": "Google AI (Gemini)",
       "SERPER_API_KEY": "Serper (Google Search)",
-      "NEWS_API_KEY": "NewsAPI"
 
   }
   keys_not_found = []
@@ -133,6 +132,7 @@ researcher_agent=initialize_agent(
 print("Researcher Agent Initialized")
 
 # Analyst
+
 analyst_agent=initialize_agent(
     tools=[], #Only information source in the first agent
     llm=llm,
@@ -155,6 +155,7 @@ print("Single Agent Initialised")
 print("All the agents are ready to use")
 
 # Now let us build the metrics to compare the performance of a single agent analyst versus double agent anlyst
+# For finding the hallucinations we shall see how many times the model hedges uncertain words
 
 class Metrics:
   def __init__(self):
@@ -192,7 +193,7 @@ class Metrics:
 
     return result
 
-    # Now let us show the comparison between the sigle versus the double agent model
+    # Now let us show the comparison between the single versus the double agent model
 
   def comparison(self):
     """Showing the comparison"""
@@ -333,6 +334,8 @@ def single_agent_analysis(query):
    except Exception as e:
     print(f"Error: {e}")
     return None
+
+# Example Usage
 
 #Run a query like this:
 #financial_query_analysis("What are the latest developments for NVIDIA?")
