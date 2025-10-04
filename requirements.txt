@@ -1,0 +1,6 @@
+langchain
+langchain-google-genai
+google-search-results
+newsapi-python
+langchain-community
+requests
