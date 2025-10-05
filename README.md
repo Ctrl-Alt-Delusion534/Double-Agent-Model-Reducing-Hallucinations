@@ -24,7 +24,7 @@ Produces structured analysis reports
 By isolating the analysis phase from data collection, the system significantly reduces hallucination risk.
 
 # Results:
-
+Based on a query run
 Facts and Numbers
   Dual-Agent:  36.8 
   Single-Agent: 13.8
