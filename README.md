@@ -34,3 +34,5 @@ Based on a query run
 - Dual-Agent:   32.0/100
 - Single-Agent: 8.0/100
 - Improvement: +300%
+
+### However, there arises a fluctuation in the number of uncertain_words for the dual and the single agent model based on the fact that the data is inherently uncertain.
