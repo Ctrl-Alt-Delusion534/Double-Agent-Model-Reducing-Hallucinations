@@ -373,19 +373,19 @@ def single_agent_analysis(query):
 #financial_query_analysis_for_dual(test_query)
 # Run single-agent
 #single_agent_analysis(test_query)
+if __name__ == "__main__":
+    # Test with the same query on both systems
 
-# Test with the same query on both systems
-test_query = "What are the latest developments for NVIDIA?"
+    test_query = "What are the latest developments for NVIDIA?"
 
-# Run dual-agent
-financial_query_analysis_for_dual(test_query)
+    # Run dual-agent
+    financial_query_analysis_for_dual(test_query)
+    
+    import time
+    time.sleep(10)
 
-# Wait a bit to avoid rate limits
-import time
-time.sleep(10)
-
-# Run single-agent
-single_agent_analysis(test_query)
+    # Run single-agent
+    single_agent_analysis(test_query)
 
 metrics.comparison()
 
